@@ -247,14 +247,12 @@ const Homesql = () => {
                     </p>
 
                     {/* زر "اقرأ المزيد" */}
-                    <a href="/story">
                     <button
                         onClick={() => navigate(`/story/${id}`)} // الانتقال لصفحة التفاصيل
                         className="text-blue-600 hover:text-blue-800 mt-2 cursor-pointer"
                     >
                         اقرأ المزيد
                     </button>
-                    </a>
                 </div>
             </div>
         );
@@ -266,36 +264,34 @@ const Homesql = () => {
         const stories = [
             {
                 id: 1,
-                image: "https://images.pexels.com/photos/7173554/pexels-photo-7173554.jpeg",
-                title: "نجاح مشروع تصنيع الصابون الطبيعي ",
-                 description: "  مشروع صغير بدأ بإمكانات محدودة وتحول إلى علامة تجارية محلية ",
-
-
+                image: "https://images.pexels.com/photos/8068256/pexels-photo-8068256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                title: "قصة علي في ريادة الأعمال ",
+                description: "هذه هي قصة النجاح الأولى التي تحكي عن تحقيق الأهداف.",
             },
             {
                 id: 2,
-                image: "https://images.pexels.com/photos/6461239/pexels-photo-6461239.jpeg",
-                title: "مشروع ورشة الخياطة  ",
-                description: "كيف تمكنت سعاد من تحويل موهبتها في الخياطة إلى مشروع ناجح.",
-
+                image: "https://images.pexels.com/photos/6205769/pexels-photo-6205769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                title: "قصة النجاح الثانية",
+                description: "هذه هي قصة النجاح الثانية التي تحكي عن التحديات والإنجازات.",
             },
             {
                 id: 2,
-                image: "https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-                title: " نجاح مشروع المخبوزات المنزلية ",
-                description: "كيف استطاع أحمد أن يحول شغفه بالمخبوزات إلى مصدر دخل مستدام.",
+                image: "https://images.pexels.com/photos/4173278/pexels-photo-4173278.jpeg",
+                title: "قصة النجاح الثانية",
+                description: "هذه هي قصة النجاح الثانية التي تحكي عن التحديات والإنجازات.",
             },
 
             {
                 id: 2,
-                image: "https://images.pexels.com/photos/3184163/pexels-photo-3184163.jpeg",
-                title: "مشروع تصميم الديكور الداخلي",
-                description: "سارة تحقق حلمها في تصميم الديكورات المنزلية بأسلوب عصري.",
+                image: "https://images.pexels.com/photos/5641839/pexels-photo-5641839.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                title: "قصة النجاح الثانية",
+                description: "هذه هي قصة النجاح الثانية التي تحكي عن التحديات والإنجازات.",
             },
             // يمكنك إضافة المزيد من القصص هنا
         ];
 
         return (
+          <div className="flex flex-wrap justify-center gap-6 md:flex-row flex-col">
             <div className="flex flex-nowrap gap-10  p-4 overflow-auto">
                 {stories.map((story) => (
                     <SuccessStoryCard
@@ -307,206 +303,204 @@ const Homesql = () => {
                     />
                 ))}
             </div>
+            </div>
         );
     };
 
 
 
     return (
-        <div>
-            {/* قسم الصور المتحركة (HeroSection) */}
-            <div className="relative bg-white flex items-center justify-center  w-full h-[700px] overflow-hidden">
-                {/* صورة الخلفية */}
-                <div className="absolute inset-0 w-full h-full ">
-                    <img
-                        src={images[currentImage]}
-                        alt="تمويل جماعي"
-                        className="w-full h-full object-cover transition-opacity duration-1000"
-                    />
-                </div>
+      <div>
+        {/* قسم الصور المتحركة (HeroSection) */}
+        <div className="relative bg-white flex items-center justify-center  w-full h-[700px] overflow-hidden">
+          {/* صورة الخلفية */}
+          <div className="absolute inset-0 w-full h-full ">
+            <img
+              src={images[currentImage]}
+              alt="تمويل جماعي"
+              className="w-full h-full object-cover transition-opacity duration-1000"
+            />
+          </div>
 
-                {/* الشريط النصي */}
-                <div
-                    className="absolute inset-x-0  inset-0 flex items-center justify-center top-1/3 text-white py-20 px-8 text-center w-full h-[200px] flex flex-col gap-4"
-                    style={{ backgroundColor: "rgba(45, 170, 158, 0.6)" }} // 0.6 = 60% شفافية
-                >
-                    <h1 className="text-1xl md:text-4xl font-bold">ساهم في بناء مجتمعنا</h1>
-                    <h1 className="text-1xl md:text-4xl font-bold">
-                        من خلال منصة مشكاة وكن جزءًا من التغيير
-                    </h1>
-                </div>
+          {/* الشريط النصي */}
+          <div
+            className="absolute inset-x-0  inset-0 flex items-center justify-center top-1/3 text-white py-20 px-8 text-center w-full h-[200px] flex flex-col gap-4"
+            style={{ backgroundColor: "rgba(45, 170, 158, 0.6)" }} // 0.6 = 60% شفافية
+          >
+            <h1 className="text-1xl md:text-4xl font-bold">
+              ساهم في بناء مجتمعنا
+            </h1>
+            <h1 className="text-1xl md:text-4xl font-bold">
+              من خلال منصة مشكاة وكن جزءًا من التغيير
+            </h1>
+          </div>
 
-                {/* تصميم الهرسكشن السفلي على شكل X */}
-                <div className="absolute bottom-0 left-0 w-full h-24 bg-white clip-path-x"></div>
+          {/* تصميم الهرسكشن السفلي على شكل X */}
+          <div className="absolute bottom-0 left-0 w-full h-24 bg-white clip-path-x"></div>
 
-                {/* الأزرار أسفل القسم */}
-                <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 flex gap-4 ">
-                <a href="/projects">
-                    <button className="bg-[#2DAA9E] text-white py-1 px-8 rounded-lg text-lg font-semibold hover:bg-[#248f83] transition-colors duration-300">
-                        ساهم الآن
-                    </button>
-                    </a>
-                    <a href="/ProjectSubmissionForm">
-  <button className="bg-white text-[#2DAA9E] py-1 px-8 rounded-lg text-lg font-semibold border-2 border-[#2DAA9E] hover:bg-[#2DAA9E] hover:text-white transition-colors duration-300">
-    ابدأ رحلتك
-  </button>
-</a>
-                </div>
-
-                <style jsx>{`
-          .clip-path-x {
-            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
-          }
-        `}</style>
-            </div>
-
-            {/* قسم حملات المشاريع (CampaignSection) */}
-            <div className="flex flex-col items-center text-center my-8 font-bold">
-                <h1 className="text-3xl mb-2 text-gray-800">حملات المشاريع</h1>
-                <h2 className="text-xl mb-4 text-gray-600">دعمك يبني المجتمعات</h2>
-                <div className="w-32 h-1 bg-[#2DAA9E] rounded"></div>
-            </div>
-
-            {/* عرض الكاردات */}
-            <div className="flex flex-wrap justify-center  bg-white gap-0 ">
-                {charityProjects.map((project) => (
-                    <CharityCard
-                        key={project.id}
-                        title={project.title}
-                        image={project.image}
-                        category={project.category}
-                        organization={project.organization}
-                        location={project.location}
-                        flag={project.flag}
-                        targetAmount={project.targetAmount}
-                        currentAmount={project.currentAmount}
-                        supportAmount={project.supportAmount}
-                        donorsCount={project.donorsCount}
-                        progress={project.progress}
-                        isCompleted={project.isCompleted}
-                    />
-                ))}
-            </div>
-
-            <div className="flex justify-center items-center m-10 ">
+          {/* الأزرار أسفل القسم */}
+          <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 flex gap-4 ">
             <a href="/projects">
-                <button
-                    className="px-8 py-3 bg-gray-100 text-[#2DAA9E] border-2 border-[#2DAA9E] rounded-full text-lg font-medium hover:bg-gray-200 transition duration-300"
-                    dir="rtl"
-                >
-                    المزيد من المشاريع
-                </button>
-                </a>
-            </div>
+              <button className="bg-[#2DAA9E] text-white py-1 px-8 rounded-lg text-lg font-semibold hover:bg-[#248f83] transition-colors duration-300">
+                ساهم الآن
+              </button>
+            </a>
+            <a href="/CreateProject">
+              <button className="bg-white text-[#2DAA9E] py-1 px-8 rounded-lg text-lg font-semibold border-2 border-[#2DAA9E] hover:bg-[#2DAA9E] hover:text-white transition-colors duration-300">
+                ابدأ رحلتك
+              </button>
+            </a>
+          </div>
 
-            {/* القسم الجديد (الفيديو والنص) */}
-            <div className="w-full bg-white p-10 font-sans mt-30 " dir="rtl">
-                <div className="w-full mx-auto justify-around flex flex-col md:flex-row gap-8 ">
-
-
-                    {/* Text Section */}
-                    <div className="w-full md:w-1/3 text-start "> {/* تم تغيير text-start إلى text-end */}
-                        <h2 className="text-3xl font-bold mb-6 text-gray-900">كيف تعمل منصة مشكاة</h2>
-
-                        <p className="text-2xl mb-6 leading-relaxed text-gray-700">
-                            لأن مساهمتك تنهض بالمجتمعات توفر منصة مشكاة للتمويل الجماعي أساليب وطرق
-                            ملائمة تسهل لك دعم المشاريع الخيرية والمبادرات الانسانية من الإغاثة في حالات
-                            الكوارث إلى التعليم والاستدامة، كما تقدم مشكاة رحلة تمويل سلسة تبدأ بخطوات
-                            معدودة تقوم من خلالها الجمعيات بطلب التمويل.
-                        </p>
-
-                        <button
-                            onClick={() => {
-                                setIsPlaying(true);
-                                // Scroll to video if needed
-                                document.querySelector('.video-section')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                            className="inline-flex  text-2xl items-center text-[#2DAA9E] hover:text-[#2DAA9E] mt-4 cursor-pointer"
-                        >
-                            <Play size={20} className="mr-2" /> {/* تم تغيير ml-2 إلى mr-2 */}
-                            شاهد آلية عمل منصة مشكاة
-                        </button>
-                    </div>
-
-                    {/* Video Section */}
-                    <div className="max-w-3xl md:w-2/3 relative rounded-xl overflow-hidden shadow-lg aspect-video ">
-                        {!isPlaying ? (
-                            // Video Thumbnail with Play Button
-                            <div className="relative w-full h-full">
-                                <img
-                                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                                    alt="كيف تعمل منصة تشاركي للتمويل الجماعي"
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center">
-                                    <button
-                                        className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center cursor-pointer"
-                                        onClick={() => setIsPlaying(true)}
-                                    >
-                                        <Play size={32} color="white" />
-                                    </button>
-                                </div>
-                                <div className="absolute top-4 start-4 text-white text-sm bg-black bg-opacity-50 p-1 rounded">
-                                    كيف تعمل منصة مشكاة
-                                </div>
-                                <div className="absolute bottom-4 end-4 text-white text-lg">
-                                    CrowdFunding
-                                </div>
-                            </div>
-                        ) : (
-                            // Embedded YouTube iframe
-                            <iframe
-                                className="w-full h-full"
-                                src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-                                title="كيف تعمل منصة تشاركي للتمويل الجماعي"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
-                        )}
-                    </div>
-
-
-                </div>
-
-
-
-                {/* قسم قصص النجاح */}
-                <div className="w-full bg-white py-12 gap-5 mt-30" dir="rtl">
-                    <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-                        {/* العنوان */}
-                        <div className="flex flex-col items-center text-center my-8 font-bold mb-20">
-                            <h1 className="text-3xl mb-2 text-gray-800"> قصص النجاح</h1>
-                            <h2 className="text-xl mb-4 text-gray-600">دعمك يبني المجتمعات</h2>
-                            <div className="w-32 h-1 bg-[#2DAA9E] rounded"></div>
-                        </div>
-
-
-                        {/* البطاقات */}
-                        <div className="w-full" >
-                            <SuccessStoriesList /> {/* عرض قائمة قصص النجاح هنا */}
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-            <div>
-                {/* محتوى الصفحة الأخرى */}
-                <WhyTasharukiSection />
-            </div>
-
-
-            <div>
-                {/* محتوى الصفحة الأخرى */}
-                <ConsultationSection />
-            </div>
-
+          <style jsx>{`
+            .clip-path-x {
+              clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+            }
+          `}</style>
         </div>
 
+        {/* قسم حملات المشاريع (CampaignSection) */}
+        <div className="flex flex-col items-center text-center my-8 font-bold">
+          <h1 className="text-3xl mb-2 text-gray-800">حملات المشاريع</h1>
+          <h2 className="text-xl mb-4 text-gray-600">دعمك يبني المجتمعات</h2>
+          <div className="w-32 h-1 bg-[#2DAA9E] rounded"></div>
+        </div>
 
+        {/* عرض الكاردات */}
+        <div className="flex flex-wrap justify-center  bg-white gap-0 ">
+          {charityProjects.map((project) => (
+            <CharityCard
+              key={project.id}
+              title={project.title}
+              image={project.image}
+              category={project.category}
+              organization={project.organization}
+              location={project.location}
+              flag={project.flag}
+              targetAmount={project.targetAmount}
+              currentAmount={project.currentAmount}
+              supportAmount={project.supportAmount}
+              donorsCount={project.donorsCount}
+              progress={project.progress}
+              isCompleted={project.isCompleted}
+            />
+          ))}
+        </div>
+
+        <div className="flex justify-center items-center m-10 ">
+          <a href="/projects">
+            <button
+              className="px-8 py-3 bg-gray-100 text-[#2DAA9E] border-2 border-[#2DAA9E] rounded-full text-lg font-medium hover:bg-gray-200 transition duration-300"
+              dir="rtl"
+            >
+              المزيد من المشاريع
+            </button>
+          </a>
+        </div>
+
+        {/* القسم الجديد (الفيديو والنص) */}
+        <div className="w-full bg-white p-10 font-sans mt-30 " dir="rtl">
+          <div className="w-full mx-auto justify-around flex flex-col md:flex-row gap-8 ">
+            {/* Text Section */}
+            <div className="w-full md:w-1/3 text-start ">
+              {" "}
+              {/* تم تغيير text-start إلى text-end */}
+              <h2 className="text-3xl font-bold mb-6 text-gray-900">
+                كيف تعمل منصة مشكاة
+              </h2>
+              <p className="text-2xl mb-6 leading-relaxed text-gray-700">
+                لأن مساهمتك تنهض بالمجتمعات توفر منصة مشكاة للتمويل الجماعي
+                أساليب وطرق ملائمة تسهل لك دعم المشاريع الخيرية والمبادرات
+                الانسانية من الإغاثة في حالات الكوارث إلى التعليم والاستدامة،
+                كما تقدم مشكاة رحلة تمويل سلسة تبدأ بخطوات معدودة تقوم من خلالها
+                الجمعيات بطلب التمويل.
+              </p>
+              <button
+                onClick={() => {
+                  setIsPlaying(true);
+                  // Scroll to video if needed
+                  document
+                    .querySelector(".video-section")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex  text-2xl items-center text-[#2DAA9E] hover:text-[#2DAA9E] mt-4 cursor-pointer"
+              >
+                <Play size={20} className="mr-2" />{" "}
+                {/* تم تغيير ml-2 إلى mr-2 */}
+                شاهد آلية عمل منصة مشكاة
+              </button>
+            </div>
+
+            {/* Video Section */}
+            <div className="max-w-3xl md:w-2/3 relative rounded-xl overflow-hidden shadow-lg aspect-video ">
+              {!isPlaying ? (
+                // Video Thumbnail with Play Button
+                <div className="relative w-full h-full">
+                  <img
+                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    alt="كيف تعمل منصة تشاركي للتمويل الجماعي"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center">
+                    <button
+                      className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center cursor-pointer"
+                      onClick={() => setIsPlaying(true)}
+                    >
+                      <Play size={32} color="white" />
+                    </button>
+                  </div>
+                  <div className="absolute top-4 start-4 text-white text-sm bg-black bg-opacity-50 p-1 rounded">
+                    كيف تعمل منصة مشكاة
+                  </div>
+                  <div className="absolute bottom-4 end-4 text-white text-lg">
+                    CrowdFunding
+                  </div>
+                </div>
+              ) : (
+                // Embedded YouTube iframe
+                <iframe
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                  title="كيف تعمل منصة تشاركي للتمويل الجماعي"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              )}
+            </div>
+          </div>
+
+          {/* قسم قصص النجاح */}
+          
+          <div className="w-full bg-white py-12 gap-5 mt-30" dir="rtl">
+            <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+              {/* العنوان */}
+              <div className="flex flex-col items-center text-center my-8 font-bold mb-20">
+                <h1 className="text-3xl mb-2 text-gray-800"> قصص النجاح</h1>
+                <h2 className="text-xl mb-4 text-gray-600">
+                  دعمك يبني المجتمعات
+                </h2>
+                <div className="w-32 h-1 bg-[#2DAA9E] rounded"></div>
+              </div>
+
+              {/* البطاقات */}
+              <div className="w-full">
+                <SuccessStoriesList /> {/* عرض قائمة قصص النجاح هنا */}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          {/* محتوى الصفحة الأخرى */}
+          <WhyTasharukiSection />
+        </div>
+
+        <div>
+          {/* محتوى الصفحة الأخرى */}
+          <ConsultationSection />
+        </div>
+      </div>
     );
 };
 

@@ -7,7 +7,7 @@ const ProjectForm = () => {
     image: "",
     category: "",
     organization: "",
-    targetAmount: "",
+    // targetAmount: "",
     youtubeUrl: "",
     whySupport: "",
     photo1Url: "",

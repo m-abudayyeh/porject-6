@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { FaHeart, FaRegHeart, FaUsers } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-// مكون بطاقة العمل الخيري
+
 const CharityCard = ({ 
   id, 
   title, 
@@ -18,7 +18,6 @@ const CharityCard = ({
   progress, 
   isCompleted = false,
 }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -53,7 +52,7 @@ const CharityCard = ({
         </div>
         <div className="h-2 bg-gray-200 rounded-full mb-3">
           <motion.div 
-            className="h-2 rounded-full bg-green-600" 
+            className="h-2 rounded-full bg-[#2DAA9E]" 
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -75,7 +74,7 @@ const CharityCard = ({
         </div>
         <Link to={`/project/${id}`}>
           <motion.button 
-            className={`w-full rounded-md py-2 px-4 text-center ${isCompleted ? 'bg-red-700' : 'bg-green-700'} text-white font-bold transition duration-300 hover:shadow-lg`}
+            className={`w-full rounded-md py-2 px-4 text-center ${isCompleted ? 'bg-red-700' : 'bg-[#2DAA9E]'} text-white font-bold transition duration-300 hover:shadow-lg`}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -88,55 +87,63 @@ const CharityCard = ({
 }
 
 // مكون الصفحة الرئيسية
-function Heba() {
-  const [activeCategory, setActiveCategory] = useState('جميع الفئات');
+function ProjectCard() {
+  const [activeCategory, setActiveCategory] = useState("جميع الفئات");
   const [charityProjects, setCharityProjects] = useState([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/projects/AllProject');
+        const response = await axios.get(
+          "http://localhost:4000/api/projects/AllProject"
+        );
         setCharityProjects(response.data);
       } catch (error) {
-        console.error('Error fetching projects:', error);
+        console.error("Error fetching projects:", error);
       }
     };
     fetchProjects();
   }, []);
 
-  const filteredProjects = activeCategory === 'جميع الفئات' 
-    ? charityProjects 
-    : charityProjects.filter(project => project.categoryType === activeCategory);
-  
+  const filteredProjects =
+    activeCategory === "جميع الفئات"
+      ? charityProjects
+      : charityProjects.filter(
+          (project) => project.categoryType === activeCategory
+        );
+
   return (
     <div className="min-h-screen bg-gray-50" dir="rtl">
-      <div className="container mx-auto py-6 px-4 ">
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          {filteredProjects.map(project => (
-            <CharityCard 
+    <div className="container mx-auto py-20 px-4 ">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-0 gap-y-10 justify-items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {filteredProjects
+          .filter((project) => project.status === "approved") 
+          .map((project) => (
+            <CharityCard
               key={project.id}
               id={project.id}
-              title={project.title}
-              image={project.image}
-              category={project.category}
-              organization={project.organization}
-              targetAmount={project.targetAmount}
-              currentAmount={project.currentAmount}
+              title={project.name}
+              // image={project.main_image}
+              image={`http://localhost:4000/${project.main_image}`}
+              category={project.department}
+              organization={project.organization_name}
+              targetAmount={project.goal_amount}
+              currentAmount={project.collected_amount}
               supportAmount={project.supportAmount}
               donorsCount={project.donorsCount}
               progress={project.progress}
               isCompleted={project.isCompleted}
             />
           ))}
-        </motion.div>
-      </div>
+      </motion.div>
     </div>
+  </div>
   );
 }
 
-export default Heba;
+export default ProjectCard;
